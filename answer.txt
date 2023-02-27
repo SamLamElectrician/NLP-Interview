@@ -1,0 +1,132 @@
+N= * OF digits for time/space complexity
+
+Method 1
+//finding the reverse of a string
+//sees if reverese and string are the same
+
+def palindrome(s):
+//compares first to last and so on
+    return s==s[::-1]
+
+
+Time complexity is O(n) because of the search function of the array datastructure. The space complexity would be O(1) due to two pointer technique and only going over the array once over.
+
+Pros --> Simple to use, best time and space complexity
+Cons --> none
+
+
+Method 2
+//Splits the string in half and compares each half
+
+def palindrome(s):
+ left, right = 0, len(s) - 1
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
+
+Time complexity is O(n) because of the search function of the array datastructure. The space complexity would be O(1) due to two pointer technique and only going over the array once over. 
+
+Pros --> simple to use, best time and space complexity
+Cons --> harder to read code than the built in method of two pointer
+
+Method 3
+//using built-in methods
+
+def palindrome(s):
+//defined function to reverse string
+    reverse = "".join(reversed(s))
+
+    if (s == reverse):
+        return True
+    return False
+
+Time complexity is O(n) because of the search function of the array datastructure. The space complexity would be O(1) due to going over the string once and using built in methods. 
+
+Pros --> simple to use, best time and space complexity
+Cons --> alot more code for what could be a one liner, a little bit harder to read
+
+Method 4
+//using a variable to store the reverse string
+
+def palindrome(s):
+    w = ""
+    for i in s:
+        w = i+w
+
+    if (s == w):
+        print("True")
+    else:
+        print("False")
+
+
+Time complexity is O(n) because of the search function of the array datastructure. The space complexity would be O(n) due to creating a variable and comparing two things as well as a for loop. 
+
+Pros --> simple to understand for someone without a comp sci background
+Cons --> hard to read and its slow
+
+Method 5
+//using a flag status indicator 
+
+def palindrome(s):
+    j =-1
+    flag = 0
+    for i in s:
+        if i != s[j]:
+            flag =-1
+            break
+        j = j-1
+    if flag == 1:
+        print("False")
+    else:
+        print("Yes")
+
+Time complexity is O(n) because of the search function of the array datastructure. The space complexity would be O(n) due to creating called flag and checking if it is positive. 
+
+Pros --> easy to explain a flag concept to a beginner
+Cons --> unecessary code, inefficient
+
+method 6
+//recursion to compare first and last element and give rest of substring to recursive call
+
+def palindrome(s):
+    s = s.lower()
+    l = len(s)
+
+    if l < 2:
+        return True
+
+    elif s[0] == s[l-1]:
+    //call from palindrome substring
+        return palindrome(s[1:1-1])
+    else:
+        return False
+
+Time complexity is O(n) because of the search function of the array datastructure. The space complexity would be O(1) due the algorithm of recursion and calling itself . 
+
+Pros --> fast due to recursion, simple to understand, efficient due to time and space complexity
+Cons --> why would would use this when a oneliner is better to read and has the same time and space complexity
+
+method 7
+//built in methods with a variable
+
+def palindrome(s):
+//makes string into a list
+    x=list(s)
+    //empty array
+    y=[]
+    //appends x to array
+    y.extends(x)
+    //reverses x
+    x.reverse()
+
+    if(x==y):
+        return True 
+    return False
+
+Time complexity is O(n) because of the search function of the array datastructure. The space complexity would be O(n) due to built in methods not being the best algorithmically. 
+
+Pros -->
+Cons --> hard to read, slow, inefficient

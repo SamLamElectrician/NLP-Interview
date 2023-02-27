@@ -1,0 +1,64 @@
+N= * OF digits for time/space complexity
+
+Method 1 
+//string manipulation
+// turning the number to a string and checking
+
+def palindrome(num):
+        if str(num) == str(num[::-1]):
+            print("Palindrome")
+        else:
+            print("Not Palindrome")
+
+
+Time complexity is O(n). Space is O(n) because of reversing a string by slicing and comparing the new string
+
+Pros --> simple to understand, similiar to the normal method of checking if a string is a palindrome
+Cons --> slow
+
+method 2
+//modulo method
+// getting number from least significant digit to most signifcant digit and comparing them
+
+def palindrome(num):
+    temp = num
+    reverse = num
+    while temp != 0:
+        remainder = temp % 10
+        reverse = reverse * 10 + remainder
+        temp = temp//10
+
+    if num == reverse:
+        print("Palindrome")
+    else:
+        print("Not Palindrome")
+
+Time complexity is O(n). The space complexity is O(1) due to not requiring extra space becuase it extracts digits one by one.
+
+Pros --> fast to implement, efficient in terms of space and time complexity
+Cons --> hard to read
+
+
+Method 3:
+//recursion
+/divide number by 10 until less than 10 then compare the digits
+
+def palindrome(num):
+    if num>10:
+        return True
+    if num % 10 === num //(10 ** (len(str(num))-1)):
+        return palindrome((num%(10 ** (len(str(num))) // 10)
+    else: 
+        return False
+
+
+    if palindrome(num):
+        print("Palindrome")
+    else:
+        print("not a Palindrome")
+
+
+Space complexity is proportional to number of digits due to the call stack. It is O(n). The time complexity is o(n) due to comparing all the digits
+
+Pros -->
+Cons -->hard to read and it's slow
